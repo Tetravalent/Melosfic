@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Montserrat:ital,wght@1,100&family=Rubik+Wet+Paint&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: #c0c0c0;
+    background-image: url(wood.jpg);
+
+}
+
+body header nav {
+    font-family: 'Rubik Wet Paint', cursive;
+    font-size: large;
+}
+
+.unlist {
+    display: flex;
+    list-style-type: none;
+    height: 65px;
+    color: #413f3d  ;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    padding: 580px;
+    align-items: center;
+    height: 200px;
+
+}
+
+.brand img {
+
+    clip-path: circle(49.83% at center center);
+    width: 115px;
+    position: relative;
+    top: 27px;
+    right: 87px;
+
+}
+
+.into{
+    position: relative;
+    right: 242px;
+    white-space: nowrap;
+}
+nav ul li {
+    padding: 0 12px;
+
+}
+
+.container {
+    min-height: 75vh;
+    background-color: black;
+    display: flex;
+    margin: 23px auto;
+    width: 70vw;
+    border-radius: 12px;
+    color: white;
+    padding: 34px;
+    /* background-image: url(back.jpg); */
+    flex-direction: column;
+    background-color: #c0c0c0;
+
+}
+
+
+.songitem {
+    height: 50px;
+    display: flex;
+    /* background-color: white; */
+    color: black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 34px;
+    width: 500px;
+    margin: 12px;
+}
+
+.songitem img {
+
+    width: 43px;
+    margin: 0 23px;
+    border-radius: 34px;
+}
+
+.timestamp {
+    margin: 0 23px;
+
+}
+
+.bottom {
+
+    position: sticky;
+    display: flex;
+    align-items: center;
+    height: 130px;
+    justify-content: center;
+    height: 80px;
+    color: black;
+    flex-direction: column;
+
+}
+
+.icons {
+    margin-top: 18px;
+}
+
+#progressbar {
+    width: 80vw;
+    cursor: pointer;
+
+}
+
+.songitemcontainer {
+    margin-top: 74px;
+}
+
+.icons {
+    display: flex;
+}
+
+.icons svg {
+    width: 20px;
+    /* padding-left: 12px ;
+    position: relative;
+    right: 50px; */
+    cursor: pointer;
+    margin: 0 12px;
+
+}
+
+#masterpause {
+    position: absolute;
+    margin-left: 57px;
+}
+
+.songinfo {
+    position: absolute;
+    left: 10vw;
+}
+
+
+.songinfo img {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
