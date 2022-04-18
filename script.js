@@ -1,38 +1,132 @@
 let finger = 0;
-let song = new Audio('embrace.mp3');
+let song = new Audio('songs/1.mp3');
 let master = document.getElementById('masterplay')
-let masterpause = document.getElementById('masterpause')
+let mastersongname = document.getElementById('mastersongname')
 let progressbar = document.getElementById('progressbar')
 let gif = document.getElementById('gif')
+let songitems = Array.from(document.getElementsByClassName('songitem'));
+// let timestamp = Array.from(document.getElementsByClassName('timestamp'))
+
 
 let songs = [
-    { songname: "Take me to church", filepath: " ", coverpath: "", },
-    { songname: "Take me to church", filepath: " ", coverpath: "", },
-    { songname: "Take me to church", filepath: " ", coverpath: "", },
-    { songname: "Take me to church", filepath: " ", coverpath: "", },
-    { songname: "Take me to church", filepath: " ", coverpath: "", },
-    { songname: "Take me to church", filepath: " ", coverpath: "", },
+    { songname: "Altruism & Burn In Noise & Outsiders", filepath: "songs/1.mp3 ", coverpath: "covers/any.png", },
+    { songname: "Damru - Good morning", filepath: "songs/2.mp3 ", coverpath: "covers/damru.png", },
+    { songname: "Embrace", filepath: "songs/3.mp3 ", coverpath: "covers/xerox.png", },
+    { songname: "Earthling and Ajja - Puddle jumper", filepath: "songs/4.mp3 ", coverpath: "covers/sensory.png", },
+    { songname: "Green Nuns of the revolution - Two Vindaloos & An Onion bhagee", filepath: "songs/5.mp3 ", coverpath: "covers/noise.png", },
+    { songname: "Sesto sento - Key To The Universe", filepath: "songs/6.mp3 ", coverpath: "covers/sesto.png", },
+    { songname: "Talamasca - A Frenchman In Mumbai", filepath: "songs/7.mp3 ", coverpath: "covers/talas.png", },
+    { songname: "Technical Hitch-Mama India", filepath: "songs/8.mp3 ", coverpath: "covers/Untitled.png", },
+    { songname: "Xerox - Force Of Life", filepath: "songs/9.mp3 ", coverpath: "covers/noise.png", },
+    { songname: "Damru - yaatra", filepath: "songs/10.mp3", coverpath: "covers/damru.png", },
+
 ]
 
-body.document.getElementById('masterpause').style.display = 'none'
+songitems.forEach((element, i) => {
+    element.getElementsByTagName("img")[0].src = songs[i].coverpath;
+    element.getElementsByClassName("songname")[0].innerText = songs[i].songname;
+})
+
 
 master.addEventListener('click', () => {
     if (song.paused || song.currentTime <= 0) {
         song.play();
         gif.style.opacity = 1;
-        masterpause.style.display = "none";
-        master.remove('masterplay');
-        masterpause.add('masterpause');
-    }
+        masterplay.classList.remove('fa-play-circle')
+        masterplay.classList.add('fa-pause-circle')
 
+    }
     else {
         song.pause();
-        master.add('masterplay');
-        masterpause.remove('masterpause');
+        masterplay.classList.add('fa-play-circle')
+        masterplay.classList.remove('fa-pause-circle')
+        gif.style.opacity = 0;
+
     }
+})
 
 
+
+song.addEventListener('timeupdate', () => {
+    variable = parseInt((song.currentTime / song.duration) * 100);
+    progressbar.value = variable
+})
+
+progressbar.addEventListener("change", () => {
+    song.currentTime = (progressbar.value * song.duration / 100);
+})
+
+
+const makeallplays = () => {
+    Array.from(document.getElementsByClassName(
+        'songitemplay')).forEach((element) => {
+            element.classList.remove('fa-pause-circle');
+            element.classList.add('fa-play-circle');
+        }
+        )
+}
+
+Array.from(document.getElementsByClassName('songitemplay')).forEach((element) => {
+    element.addEventListener('click', (element) => {
+        if (song.paused || song.currentTime <= 0) {
+            makeallplays();
+            finger = parseInt(element.target.id);
+            element.target.classList.remove('fa-play-circle');
+            element.target.classList.add('fa-pause-circle');
+            song.src = `songs/${finger + 1}.mp3`;
+            mastersongname.innerText = songs[finger].songname;
+            song.currentTime = 0;
+            song.play();
+            gif.style.opacity = 1;
+            master.classList.remove('fa-play-circle');
+            master.classList.add('fa-pause-circle');
+        }
+        else {
+            makeallplays();
+            finger = parseInt(element.target.id);
+            element.target.classList.add('fa-play-circle');
+            element.target.classList.remove('fa-pause-circle');
+            song.src = `songs/${finger + 1}.mp3`;
+            mastersongname.innerText = songs[finger].songname;
+            song.currentTime = 0;
+            song.pause();
+            gif.style.opacity = 0;
+            master.classList.add('fa-play-circle');
+            master.classList.remove('fa-pause-circle');
+        }
+    })
+})
+
+
+
+document.getElementById('next').addEventListener('click', () => {
+    if (finger > 9) {
+        finger = 0
+    }
+    else {
+        finger += 1;
+    }
+    song.src = `songs/${finger + 1}.mp3`;
+    mastersongname.innerText = songs[finger].songname;
+    song.currentTime = 0;
+    song.play();
+    master.classList.remove('fa-play-circle');
+    master.classList.add('fa-pause-circle');
 
 })
 
-// progressbar.addEventListener('timeupdate', ()
+document.getElementById('previous').addEventListener('click', () => {
+    if (finger < 0) {
+        finger = 0
+    }
+    else {
+        finger -= 1;
+    }
+    song.src = `songs/${finger + 1}.mp3`;
+    mastersongname.innerText = songs[finger].songname;
+    song.currentTime = 0;
+    song.play();
+    master.classList.remove('fa-play-circle');
+    master.classList.add('fa-pause-circle');
+
+})
