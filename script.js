@@ -5,7 +5,7 @@ let mastersongname = document.getElementById('mastersongname')
 let progressbar = document.getElementById('progressbar')
 let gif = document.getElementById('gif')
 let songitems = Array.from(document.getElementsByClassName('songitem'));
-// let timestamp = Array.from(document.getElementsByClassName('timestamp'))
+// let timestamp = Array.from(document.getElemenotsByClassName('timestamp'))[]
 
 
 let songs = [
