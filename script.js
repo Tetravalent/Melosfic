@@ -13,7 +13,7 @@ let songs = [
     { songname: "Damru - Good morning", filepath: "songs/2.mp3 ", coverpath: "covers/damru.png", },
     { songname: "Embrace", filepath: "songs/3.mp3 ", coverpath: "covers/xerox.png", },
     { songname: "Earthling and Ajja - Puddle jumper", filepath: "songs/4.mp3 ", coverpath: "covers/sensory.png", },
-    { songname: "Green Nuns of the revolution - Two Vindaloos & An Onion bhagee", filepath: "songs/5.mp3 ", coverpath: "covers/noise.png", },
+    { songname: "Green Nuns of the revolution - Two Vindaloos & An Onion bhagee", filepath: "songs/.mp3 ", coverpath: "covers/noise.png", },
     { songname: "Sesto sento - Key To The Universe", filepath: "songs/6.mp3 ", coverpath: "covers/sesto.png", },
     { songname: "Talamasca - A Frenchman In Mumbai", filepath: "songs/7.mp3 ", coverpath: "covers/talas.png", },
     { songname: "Technical Hitch-Mama India", filepath: "songs/8.mp3 ", coverpath: "covers/Untitled.png", },

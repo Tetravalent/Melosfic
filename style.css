@@ -331,6 +331,9 @@ nav ul li {
         position: fixed;
     }
 
+    .songname{
+        font-size: 14px;
+    }
 }
 
 @media (min-width:200px) and (max-width:800px) {
@@ -342,4 +345,6 @@ nav ul li {
     .downside{
         z-index: -2;
     }
+
+
 }
